@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Controllers/ModelViewer.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Controllers/CameraController.gd" type="Script" id=2]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.862745, 0.862745, 0.862745, 1 )
+background_energy = 0.5
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.5
+
+[node name="ModelViewer" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="CameraController" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="CameraController"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.77383 )
+environment = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="CameraController"]
+transform = Transform( 1, 0, 0, 0, 0.769523, 0.638619, 0, -0.638619, 0.769523, 0, 1.25019, 1.36689 )
+
+[node name="Button" type="Button" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 10.0
+margin_top = -60.0
+margin_right = -970.0
+margin_bottom = 3.0
+text = "<"
+
+[node name="Button2" type="Button" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 970.0
+margin_top = -60.0
+margin_right = -10.0
+margin_bottom = 3.0
+text = ">"
+[connection signal="pressed" from="Button" to="." method="prevModel"]
+[connection signal="pressed" from="Button2" to="." method="nextModel"]
