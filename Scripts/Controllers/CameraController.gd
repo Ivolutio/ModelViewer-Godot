@@ -9,8 +9,8 @@ onready var zoomSmoothing = 10
 onready var zoomLimits = [30, 50]
 
 var yaw = 90
-var pitch = -45
-var zoom = 70
+var pitch = -35
+var zoom = 50
 
 var doRotate
 
